@@ -168,25 +168,34 @@ form input[type="text"]::placeholder {
   color: #64748b;
 }
 
-form button[type="submit"] {
+button {
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
   background-color: var(--primary);
   color: white;
-  font-weight: 700;
+  font-weight: 400;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.2s;
   font-family: inherit;
   font-size: 1rem;
   white-space: nowrap;
-}
 
-form button[type="submit"]:hover,
-form button[type="submit"]:focus {
-  background-color: var(--primary-hover);
-  outline: 2px solid white;
-  outline-offset: 2px;
+  &:hover, /* pseudo-clase que significa que el ratón está encima */
+  &:focus { /* pseudo-clase que significa que el elemento tiene el foco */
+    background-color: var(--primary-hover);
+    outline: 2px solid white;
+    outline-offset: 2px;
+  }
+
+  &:active { 
+    transform: scale(0.90)
+  }
+
+  &:disabled {
+    opacity: .5;
+    pointer-events: none;
+  }
 }
 
 /* Features Section */
@@ -404,4 +413,20 @@ article {
     background: #4caf50;
     pointer-events: none;
   }
+}
+
+select{
+  padding: 0.625rem 1.25rem;
+  background-color: var(--input-bg);
+  border: 0;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+  appearance: none;
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpolyline points="6 9 12 15 18 9"%3E%3C/polyline%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  padding-right: 2.5rem;
 }
