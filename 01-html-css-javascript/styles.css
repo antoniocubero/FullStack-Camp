@@ -370,6 +370,10 @@ article {
     &:last-child {
       border-bottom: none;
     }
+    &.is-hidden {
+      display: none;
+    }
+
   }
 }
 
