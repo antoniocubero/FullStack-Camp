@@ -1,39 +1,6 @@
-const jobsListingSection = document.querySelector('.jobs-listings')
 
-jobsListingSection.addEventListener('click', function(event) {
-  const element = event.target
 
-  if (element.classList.contains('button-apply-job')) {
-    element.textContent = '¡Aplicado!'
-    element.classList.add('is-applied')
-    element.disabled = true
-  }
-})
-
-const container = document.querySelector('.jobs-listings')
-
-const RESULTS_PER_PAGE = 3
-
-fetch("./data.json") /* fetch es asíncrono */
-  .then((response) => {
-    return response.json();
-  })
-  .then((jobs) => {
-    jobs.forEach(job => {
-      const article = document.createElement('article')
-      article.className = 'job-listing-card'
-      
-      article.dataset.modalidad = job.data.modalidad
-      article.dataset.nivel = job.data.nivel
-      article.dataset.technology = job.data.technology
-
-      article.innerHTML = `<div>
-          <h3>${job.titulo}</h3>
-          <small>${job.empresa} | ${job.ubicacion}</small>
-          <p>${job.descripcion}</p>
-        </div>
-        <button class="button-apply-job">Aplicar</button>`
-
-      container.appendChild(article)
-    })
-  });
+import './js/apply-button.js';
+import './js/filters.js'
+import './js/devjobs-avatar-element.js';
+import './js/fetch-data.js';
